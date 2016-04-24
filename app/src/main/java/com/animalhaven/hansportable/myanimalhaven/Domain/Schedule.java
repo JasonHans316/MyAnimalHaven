@@ -13,15 +13,16 @@ public class Schedule implements Serializable{
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long scheduleId;
-    private DateTimeRange dtr;
+    private int timeRequired;
 
     public Schedule() {
     }
 
     public Schedule(Builder value)
     {
+        this.scheduleId = value.id;
         this.activity = value.activity;
-        this.dtr = value.dtr;
+        this.timeRequired = value.timeRequired;
     }
     
     public String getActivity() {
@@ -32,13 +33,13 @@ public class Schedule implements Serializable{
         return scheduleId;
     }
 
-    public DateTimeRange getDtr() {
-        return dtr;
+    public int getTimeRequired() {
+        return timeRequired;
     }
 
     public static class Builder{
         String activity;
-        DateTimeRange dtr;
+        int timeRequired;
         private Long id;
 
         public Builder id(Long id) {
@@ -52,15 +53,16 @@ public class Schedule implements Serializable{
         }
 
 
-        public Builder dateTimeRange(DateTimeRange dtr) {
-            this.dtr = dtr;
+        public Builder timeRequired(int timeRequired) {
+            this.timeRequired = timeRequired;
             return this;
         }
 
         public Builder copy(Schedule value)
         {
+            this.id = value.scheduleId;
             this.activity = value.activity;
-            this.dtr = value.dtr;
+            this.timeRequired = value.timeRequired;
             return this;
         }
 

@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
         DonationRepositoryTest.class,
         LivingAreaRepositoryTest.class,
         ScheduleTypeRepository.class,
-        ScheduleRepositoryTest.class,
+        //ScheduleRepositoryTest.class,
         UserRepositoryTest.class,
         UserRoleRepositoryTest.class
 })

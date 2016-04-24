@@ -5,5 +5,5 @@ package com.animalhaven.hansportable.myanimalhaven.Config;
  */
 public class DBConstants {
     public static final String DB_NAME = "Animal_Haven_DB";
-    public static final int DB_VERSION = 11;
+    public static final int DB_VERSION = 15;
 }

@@ -18,7 +18,7 @@ public class DonationRepositoryTest extends AndroidTestCase {
     private static final String TAG="DONATION TEST";
     private Long id;
 
-    public void testCRUD() throws Exception{
+    public void testDonationCRUD() throws Exception{
         DonationRepository repo = new DonationRepositoryImpl(this.getContext());
 
         Donation donation = new Donation.Builder()

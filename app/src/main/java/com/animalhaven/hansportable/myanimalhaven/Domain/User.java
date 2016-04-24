@@ -22,6 +22,7 @@ public class User implements Serializable{
 
     public User(Builder value)
     {
+        this.userId = value.id;
         this.name = value.name;
         this.idNumber = value.idNumber;
         this.surname = value.surname;
@@ -107,6 +108,7 @@ public class User implements Serializable{
 
         public Builder copy(User value)
         {
+            this.id = value.userId;
             this.name = value.name;
             this.idNumber = value.idNumber;
             this.surname = value.surname;

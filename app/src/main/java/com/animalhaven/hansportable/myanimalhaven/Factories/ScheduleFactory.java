@@ -9,11 +9,11 @@ import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.ScheduleFact
  */
 public class ScheduleFactory implements ScheduleFactoryInterface{
     public Schedule createSchedule(String activity,
-                                   DateTimeRange dtr)
+                                   int dtr)
     {
         return new Schedule.Builder()
                 .activity(activity)
-                .dateTimeRange(dtr)
+                .timeRequired(dtr)
                 .build();
     }
 

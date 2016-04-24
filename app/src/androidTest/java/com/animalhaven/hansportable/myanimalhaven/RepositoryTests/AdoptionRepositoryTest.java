@@ -18,7 +18,7 @@ public class AdoptionRepositoryTest extends AndroidTestCase {
     private static final String TAG="ADOPTION TEST";
     private Long id;
 
-    public void testCRUD() throws Exception{
+    public void testAdoptionCRUD() throws Exception{
         AdoptionRepository repo = new AdoptionRepositoryImpl(this.getContext());
 
         Adoption adoption = new Adoption.Builder()

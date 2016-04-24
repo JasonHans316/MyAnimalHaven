@@ -23,12 +23,14 @@ public class Animal implements Serializable{
 
     public Animal(Builder value)
     {
+        this.animalId = value.animalId;
         this.name = value.name;
         this.age = value.age;
         this.spaceRequired = value.spaceRequired;
         this.weight = value.weight;
         this.breed = value.breed;
         this.adoption = value.adoption;
+        this.schedules = value.schedules;
     }
 
     public String getName() {
@@ -115,12 +117,14 @@ public class Animal implements Serializable{
 
         public Builder copy(Animal value)
         {
+            this.animalId = value.animalId;
             this.name = value.name;
             this.age = value.age;
             this.spaceRequired = value.spaceRequired;
             this.weight = value.weight;
             this.breed = value.breed;
             this.adoption = value.adoption;
+            this.schedules = value.schedules;
             return this;
         }
 
