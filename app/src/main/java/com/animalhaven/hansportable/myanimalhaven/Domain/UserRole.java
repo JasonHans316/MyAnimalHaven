@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class UserRole implements Serializable, IUserRole {
+public class UserRole implements Serializable {
 
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,14 +18,19 @@ public class UserRole implements Serializable, IUserRole {
     private String name;
     private String code;
     private boolean active;
-    private List<User> users;
+    private int userId;
 
     public UserRole(Builder value)
     {
+        userRoleId = value.id;
         this.active = value.active;
         this.name = value.name;
         this.code = value.code;
-        this.users = value.users;
+        this.userId = value.userId;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public Long getUserRoleId() {
@@ -40,11 +45,6 @@ public class UserRole implements Serializable, IUserRole {
         return code;
     }
 
-    public List<User> getUsers()
-    {
-        return users;
-    }
-
     public boolean isActive() {
         return active;
     }
@@ -53,10 +53,18 @@ public class UserRole implements Serializable, IUserRole {
         String name;
         String code;
         boolean active;
-        List<User> users;
+        int userId;
+        private Long id;
 
-        public Builder (String name) {
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public Builder name(String name) {
             this.name = name;
+            return this;
         }
 
         public Builder code(String code) {
@@ -64,8 +72,8 @@ public class UserRole implements Serializable, IUserRole {
             return this;
         }
 
-        public Builder users(List<User> users) {
-            this.users = users;
+        public Builder userId(int userId) {
+            this.userId = userId;
             return this;
         }
 
@@ -75,9 +83,11 @@ public class UserRole implements Serializable, IUserRole {
         }
 
         public Builder copy(UserRole value){
+            this.id = value.userRoleId;
             this.active = value.active;
             this.name = value.name;
             this.code = value.code;
+            this.userId = value.userId;
             return this;
         }
 

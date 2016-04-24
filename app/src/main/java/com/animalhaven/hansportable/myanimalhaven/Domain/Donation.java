@@ -9,16 +9,17 @@ import java.sql.Date;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class Donation implements Serializable, IDonation {
+public class Donation implements Serializable {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long donationId;
     private Date donationDate;
-    private double amount;
+    private int amount;
     private String comment;
 
     public Donation(Builder value)
     {
+        this.donationId = value.id;
         this.amount = value.amount;
         this.comment = value.comment;
         this.donationDate = value.donationDate;
@@ -32,7 +33,7 @@ public class Donation implements Serializable, IDonation {
         return donationId;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
@@ -41,15 +42,23 @@ public class Donation implements Serializable, IDonation {
     }
 
     public static class Builder {
-        Date donationDate;
-        double amount;
-        String comment;
 
-        public Builder(Date donationDate) {
-            this.donationDate = donationDate;
+        Date donationDate;
+        int amount;
+        String comment;
+        private Long id;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
         }
 
-        public Builder amount(double amount) {
+        public Builder donationDate(Date donationDate) {
+            this.donationDate = donationDate;
+            return this;
+        }
+
+        public Builder amount(int amount) {
             this.amount = amount;
             return this;
         }
@@ -60,6 +69,7 @@ public class Donation implements Serializable, IDonation {
         }
 
         public Builder copy(Donation value){
+            this.id = value.donationId;
             this.amount = value.amount;
             this.comment = value.comment;
             this.donationDate = value.donationDate;

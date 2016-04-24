@@ -28,7 +28,7 @@ public class TestScheduleFactory {
     {
         ScheduleFactoryInterface factory = new ScheduleFactory();
         Schedule original = factory.createSchedule("Bathing", new DateTimeRange());
-        Schedule copy = new Schedule.Builder("NewName").copy(original).build();
+        Schedule copy = new Schedule.Builder().copy(original).build();
 
         Assert.assertEquals("Bathing", original.getActivity());
         Assert.assertEquals("Bathing", copy.getActivity());

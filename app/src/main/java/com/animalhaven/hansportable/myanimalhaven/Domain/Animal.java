@@ -9,17 +9,17 @@ import java.util.List;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class Animal implements Serializable, IAnimal{
+public class Animal implements Serializable{
     private String name;
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long animalId;
     private int spaceRequired;
-    private double weight;
+    private int weight;
     private int age;
     private String breed;
-    private Adoption adoption;
-    private List<Schedule> schedules;
+    private int adoption;
+    private int schedules;
 
     public Animal(Builder value)
     {
@@ -43,17 +43,15 @@ public class Animal implements Serializable, IAnimal{
         return spaceRequired;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    @Override
-    public List<Schedule> getSchedules() {
+    public int getSchedules() {
         return schedules;
     }
 
-    @Override
-    public Adoption getAdoption() {
+    public int getAdoption() {
         return adoption;
     }
 
@@ -66,16 +64,23 @@ public class Animal implements Serializable, IAnimal{
     }
 
     public static class Builder{
-        String name;
-        int spaceRequired;
-        double weight;
-        int age;
-        String breed;
-        Adoption adoption;
-        List<Schedule> schedules;
+        private Long animalId;
+        private String name;
+        private int spaceRequired;
+        private int weight;
+        private int age;
+        private String breed;
+        private int adoption;
+        private int schedules;
 
-        public Builder(String name) {
+        public Builder name(String name) {
             this.name = name;
+            return this;
+        }
+
+        public Builder id(Long id) {
+            this.animalId = id;
+            return this;
         }
 
         public Builder spaceRequired(int spaceRequired) {
@@ -83,7 +88,7 @@ public class Animal implements Serializable, IAnimal{
             return this;
         }
 
-        public Builder weight(double weight) {
+        public Builder weight(int weight) {
             this.weight = weight;
             return this;
         }
@@ -93,7 +98,7 @@ public class Animal implements Serializable, IAnimal{
             return this;
         }
 
-        public Builder adoption(Adoption adoption) {
+        public Builder adoption(int adoption) {
             this.adoption = adoption;
             return this;
         }
@@ -103,7 +108,7 @@ public class Animal implements Serializable, IAnimal{
             return this;
         }
 
-        public Builder schedules(List<Schedule> schedules) {
+        public Builder schedules(int schedules) {
             this.schedules = schedules;
             return this;
         }

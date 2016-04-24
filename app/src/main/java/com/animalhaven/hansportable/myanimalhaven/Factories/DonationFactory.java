@@ -11,10 +11,11 @@ import java.sql.Date;
 public class DonationFactory implements DonationFactoryInterface {
     public Donation createDonation(
             Date donationDate,
-            double amount,
+            int amount,
             String comment)
     {
-        return new Donation.Builder(donationDate)
+        return new Donation.Builder()
+                .donationDate(donationDate)
                 .amount(amount)
                 .comment(comment)
                 .build();

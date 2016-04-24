@@ -12,9 +12,9 @@ import java.util.List;
 public interface AnimalFactoryInterface {
     Animal createAnimal(String name,
                         int spaceRequired,
-                        double weight,
+                        int weight,
                         int age,
-                        Adoption adoption,
-                        List<Schedule> schedules,
+                        int adoption,
+                        int schedules,
                         String breed);
 }

@@ -21,12 +21,10 @@ public class TestUserFactory {
     @Test
     public void testCreate()
     {
-        List<Donation> donations = null;
-        List<Schedule> schedules = null;
-        List<Adoption> adoptions = null;
+
         UserFactoryInterface factory = new UserFactory();
 
-        User original = factory.createUser("Jason", "Hans", "9405142354788", adoptions, donations, schedules);
+        User original = factory.createUser("Jason", "Hans", "9405142354788", 1, 0, 2);
 
         Assert.assertEquals("Hans", original.getSurname());
     }
@@ -34,13 +32,11 @@ public class TestUserFactory {
     @Test
     public void testUpdate()
     {
-        List<Donation> donations = null;
-        List<Schedule> schedules = null;
-        List<Adoption> adoptions = null;
+
         UserFactoryInterface factory = new UserFactory();
 
-        User original = factory.createUser("Jason", "Hans", "9405142354788", adoptions, donations, schedules);
-        User copy = new User.Builder("Kyle").copy(original).surname("Stevens").build();
+        User original = factory.createUser("Jason", "Hans", "9405142354788", 1, 0, 2);
+        User copy = new User.Builder().copy(original).surname("Stevens").build();
 
         Assert.assertEquals("Hans", original.getSurname());
         Assert.assertEquals("Stevens", copy.getSurname());

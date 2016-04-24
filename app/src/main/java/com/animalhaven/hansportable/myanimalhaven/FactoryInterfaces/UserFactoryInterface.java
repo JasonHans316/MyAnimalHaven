@@ -15,7 +15,7 @@ public interface UserFactoryInterface {
             String name,
             String surname,
             String idNumber,
-            List<Adoption> adoptions,
-            List<Donation> donations,
-            List<Schedule> schedules);
+            int adoptions,
+            int donations,
+            int schedules);
 }

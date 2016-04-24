@@ -15,12 +15,13 @@ public class LivingAreaFactory implements LivingAreaFactoryInterface{
             String code,
             boolean active,
             int spaceAvailable,
-            List<Animal> animals){
-        return new LivingArea.Builder(name)
+            int animals){
+        return new LivingArea.Builder()
+                .name(name)
                 .code(code)
                 .active(active)
                 .spaceAvailable(spaceAvailable)
-                .animals(animals)
+                .animalId(animals)
                 .build();
     }
 }

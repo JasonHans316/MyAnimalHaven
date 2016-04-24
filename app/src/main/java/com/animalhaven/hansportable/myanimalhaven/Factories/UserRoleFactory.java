@@ -13,13 +13,14 @@ public class UserRoleFactory implements UserRoleFactoryInterface {
     public UserRole createUserRole(
             String name,
             String code,
-            List<User> users,
+            int users,
             boolean active)
     {
-        return new UserRole.Builder(name)
+        return new UserRole.Builder()
+                .name(name)
                 .code(code)
                 .active(active)
-                .users(users)
+                .userId(users)
                 .build();
     }
 }

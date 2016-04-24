@@ -16,16 +16,17 @@ public class UserFactory implements UserFactoryInterface {
             String name,
             String surname,
             String idNumber,
-            List<Adoption>adoptions,
-            List<Donation> donations,
-            List<Schedule> schedules)
+            int adoptions,
+            int donations,
+            int schedules)
     {
-        return new User.Builder(name)
+        return new User.Builder()
+                .name(name)
                 .idNumber(idNumber)
                 .surname(surname)
-                .adoptions(adoptions)
-                .donations(donations)
-                .schedules(schedules)
+                .adoptionId(adoptions)
+                .donationId(donations)
+                .scheduleId(schedules)
                 .build();
     }
 }

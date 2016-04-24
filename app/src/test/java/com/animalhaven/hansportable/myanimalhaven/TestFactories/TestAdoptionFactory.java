@@ -28,7 +28,7 @@ public class TestAdoptionFactory {
     {
         AdoptionFactoryInterface factory = new AdoptionFactory();
         Adoption original = factory.createAdoption("First Dog", new Date(2016,02,24));
-        Adoption copy = new Adoption.Builder("New Dog").copy(original).adoptionDate(new Date(2016,04,06)).build();
+        Adoption copy = new Adoption.Builder().copy(original).adoptionDate(new Date(2016,04,06)).build();
 
         Assert.assertEquals(new Date(2016,02,24), original.getAdoptionDate());
         Assert.assertEquals(new Date(2016,04,06), copy.getAdoptionDate());

@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class Adoption implements Serializable, IAdoption{
+public class Adoption implements Serializable{
     private String comment;
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +18,7 @@ public class Adoption implements Serializable, IAdoption{
 
     public Adoption(Builder value)
     {
+        this.adoptionId = value.adoptionId;
         this.comment = value.comment;
         this.adoptionDate = value.adoptionDate;
     }
@@ -35,14 +36,20 @@ public class Adoption implements Serializable, IAdoption{
     }
 
     public static class Builder{
-        String comment;
-        Long adoptionId;
-        Date adoptionDate;
+        private String comment;
+        private Long adoptionId;
+        private Date adoptionDate;
 
-        public Builder(String comment) {
+        public Builder comment(String comment) {
             this.comment = comment;
+            return this;
         }
 
+        public Builder id(Long id) {
+            System.err.println(id);
+            this.adoptionId = id;
+            return this;
+        }
 
         public Builder adoptionDate(Date adoptionDate) {
             this.adoptionDate = adoptionDate;
@@ -58,7 +65,8 @@ public class Adoption implements Serializable, IAdoption{
         }
 
         public Adoption build(){
-            return new Adoption(this);
+            Adoption item = new Adoption(this);
+            return item;
         }
     }
 }

@@ -12,7 +12,8 @@ public class AdoptionFactory implements AdoptionFactoryInterface {
     public Adoption createAdoption(String comment,
                                    Date adoptionDate)
     {
-        return new Adoption.Builder(comment)
+        return new Adoption.Builder()
+                .comment(comment)
                 .adoptionDate(adoptionDate)
                 .build();
     }

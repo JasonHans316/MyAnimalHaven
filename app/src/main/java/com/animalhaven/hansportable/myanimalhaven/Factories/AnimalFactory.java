@@ -13,13 +13,14 @@ import java.util.List;
 public class AnimalFactory implements AnimalFactoryInterface{
     public Animal createAnimal(String name,
             int spaceRequired,
-            double weight,
+            int weight,
             int age,
-            Adoption adoption,
-            List<Schedule> schedules,
+            int adoption,
+            int schedules,
             String breed)
     {
-        return new Animal.Builder(name)
+        return new Animal.Builder()
+                .name(name)
                 .age(age)
                 .spaceRequired(spaceRequired)
                 .weight(weight)

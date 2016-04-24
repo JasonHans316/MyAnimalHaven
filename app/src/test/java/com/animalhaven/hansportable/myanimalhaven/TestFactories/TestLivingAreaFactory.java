@@ -18,9 +18,8 @@ public class TestLivingAreaFactory {
     @Test
     public void testCreate()
     {
-        List<Animal> animals = null;
         LivingAreaFactoryInterface factory = new LivingAreaFactory();
-        LivingArea original = factory.createLivingArea("Kennels", "KS", true, 50, animals);
+        LivingArea original = factory.createLivingArea("Kennels", "KS", true, 50, 1);
 
         Assert.assertEquals(50, original.getSpaceAvailable());
     }
@@ -28,10 +27,9 @@ public class TestLivingAreaFactory {
     @Test
     public void testUpdate()
     {
-        List<Animal> animals = null;
         LivingAreaFactoryInterface factory = new LivingAreaFactory();
-        LivingArea original = factory.createLivingArea("Kennels", "KS", true, 50, animals);
-        LivingArea copy = new LivingArea.Builder("Cages").copy(original).spaceAvailable(45).build();
+        LivingArea original = factory.createLivingArea("Kennels", "KS", true, 50, 1);
+        LivingArea copy = new LivingArea.Builder().copy(original).spaceAvailable(45).build();
 
         Assert.assertEquals(45, copy.getSpaceAvailable());
         Assert.assertEquals(50, original.getSpaceAvailable());

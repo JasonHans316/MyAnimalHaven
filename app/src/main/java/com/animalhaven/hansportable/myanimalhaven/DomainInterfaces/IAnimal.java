@@ -12,7 +12,7 @@ public interface IAnimal {
     String getName();
     Long  getAnimalId();
     int getSpaceRequired();
-    double getWeight();
+    int getWeight();
     int getAge();
     String getBreed();
     List<Schedule> getSchedules();

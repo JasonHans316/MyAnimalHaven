@@ -12,6 +12,6 @@ public interface UserRoleFactoryInterface {
     UserRole createUserRole(
             String name,
             String code,
-            List<User> users,
+            int users,
             boolean active);
 }

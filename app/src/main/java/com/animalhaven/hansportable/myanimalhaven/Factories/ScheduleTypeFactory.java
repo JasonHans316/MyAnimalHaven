@@ -12,13 +12,14 @@ import java.util.List;
 public class ScheduleTypeFactory implements ScheduleTypeFactoryInterface {
     public ScheduleType createScheduleType(String code,
                                            String name,
-                                           List<Schedule> schedules,
+                                           int schedules,
                                            boolean active)
     {
-        return new ScheduleType.Builder(code)
+        return new ScheduleType.Builder()
+                .code(code)
                 .name(name)
                 .active(active)
-                .schedules(schedules)
+                .scheduleId(schedules)
                 .build();
     }
 }

@@ -18,9 +18,8 @@ public class TestScheduleTypeFactory {
     @Test
     public void testCreate()
     {
-        List<Schedule> schedules = null;
         ScheduleTypeFactoryInterface factory = new ScheduleTypeFactory();
-        ScheduleType original = factory.createScheduleType("LOL", "Steven", schedules,true);
+        ScheduleType original = factory.createScheduleType("LOL", "Steven", 1,true);
 
         Assert.assertEquals("LOL", original.getCode());
     }
@@ -28,10 +27,9 @@ public class TestScheduleTypeFactory {
     @Test
     public void testUpdate()
     {
-        List<Schedule> schedules = null;
         ScheduleTypeFactoryInterface factory = new ScheduleTypeFactory();
-        ScheduleType original = factory.createScheduleType("LOL", "Steven", schedules,true);
-        ScheduleType copy = new ScheduleType.Builder("TEST").copy(original).active(false).build();
+        ScheduleType original = factory.createScheduleType("LOL", "Steven", 1,true);
+        ScheduleType copy = new ScheduleType.Builder().copy(original).active(false).build();
 
         Assert.assertEquals(false, copy.isActive());
         Assert.assertEquals(true, original.isActive());

@@ -11,7 +11,8 @@ public class ScheduleFactory implements ScheduleFactoryInterface{
     public Schedule createSchedule(String activity,
                                    DateTimeRange dtr)
     {
-        return new Schedule.Builder(activity)
+        return new Schedule.Builder()
+                .activity(activity)
                 .dateTimeRange(dtr)
                 .build();
     }

@@ -19,8 +19,7 @@ public class TestUserRoleFactory {
     public void testCreate()
     {
         UserRoleFactoryInterface factory = new UserRoleFactory();
-        List<User> users = null;
-        UserRole original = factory.createUserRole("Jason", "JH", users, true);
+        UserRole original = factory.createUserRole("Jason", "JH", 1, true);
 
         Assert.assertEquals("JH", original.getCode());
     }
@@ -29,9 +28,8 @@ public class TestUserRoleFactory {
     public void testUpdate()
     {
         UserRoleFactoryInterface factory = new UserRoleFactory();
-        List<User> users = null;
-        UserRole original = factory.createUserRole("Jason", "JH", users, true);
-        UserRole copy  = new UserRole.Builder("Steve").copy(original).code("SR").build();
+        UserRole original = factory.createUserRole("Jason", "JH", 1, true);
+        UserRole copy  = new UserRole.Builder().copy(original).code("SR").build();
 
         Assert.assertEquals("JH", original.getCode());
         Assert.assertEquals("SR", copy.getCode());

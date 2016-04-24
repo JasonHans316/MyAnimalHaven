@@ -9,40 +9,37 @@ import java.util.List;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class User implements Serializable, IUser{
+public class User implements Serializable{
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     private String name;
     private String surname;
     private String idNumber;
-    private List<Adoption> adoptions;
-    private List<Donation> donations;
-    private List<Schedule> schedules;
+    private int adoptionId;
+    private int donationId;
+    private int scheduleId;
 
     public User(Builder value)
     {
         this.name = value.name;
         this.idNumber = value.idNumber;
         this.surname = value.surname;
-        this.adoptions = value.adoptions;
-        this.donations = value.donations;
-        this.schedules = value.schedules;
+        this.adoptionId = value.adoptionId;
+        this.donationId = value.donationId;
+        this.scheduleId = value.scheduleId;
     }
 
-    @Override
-    public List<Adoption> getAdoptions() {
-        return adoptions;
+    public int getAdoption() {
+        return adoptionId;
     }
 
-    @Override
-    public List<Donation> getDonations() {
-        return donations;
+    public int getDonation() {
+        return donationId;
     }
 
-    @Override
-    public List<Schedule> getSchedules() {
-        return schedules;
+    public int getSchedule() {
+        return scheduleId;
     }
 
     public Long getUserId()
@@ -67,26 +64,34 @@ public class User implements Serializable, IUser{
         String name;
         String surname;
         String idNumber;
-        List<Adoption> adoptions;
-        List<Donation> donations;
-        List<Schedule> schedules;
+        int adoptionId;
+        int donationId;
+        int scheduleId;
+        private Long id;
 
-        public Builder(String name) {
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+
+        public Builder name(String name) {
             this.name = name;
-        }
-
-        public Builder adoptions(List<Adoption> adoptions) {
-            this.adoptions = adoptions;
             return this;
         }
 
-        public Builder donations(List<Donation> donations) {
-            this.donations = donations;
+        public Builder adoptionId(int adoptionId) {
+            this.adoptionId = adoptionId;
             return this;
         }
 
-        public Builder schedules(List<Schedule> schedules) {
-            this.schedules = schedules;
+        public Builder donationId(int donationId) {
+            this.donationId = donationId;
+            return this;
+        }
+
+        public Builder scheduleId(int scheduleId) {
+            this.scheduleId = scheduleId;
             return this;
         }
 
@@ -105,9 +110,9 @@ public class User implements Serializable, IUser{
             this.name = value.name;
             this.idNumber = value.idNumber;
             this.surname = value.surname;
-            this.adoptions = value.adoptions;
-            this.donations = value.donations;
-            this.schedules = value.schedules;
+            this.adoptionId = value.adoptionId;
+            this.donationId = value.donationId;
+            this.scheduleId = value.scheduleId;
             return this;
         }
 

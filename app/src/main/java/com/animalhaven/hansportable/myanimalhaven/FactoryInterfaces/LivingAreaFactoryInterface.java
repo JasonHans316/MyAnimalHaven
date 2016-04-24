@@ -14,5 +14,5 @@ public interface LivingAreaFactoryInterface {
             String code,
             boolean active,
             int spaceAvailable,
-            List<Animal> animals);
+            int animals);
 }

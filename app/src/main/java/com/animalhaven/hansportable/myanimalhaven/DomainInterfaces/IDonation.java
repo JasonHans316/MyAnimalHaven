@@ -8,6 +8,6 @@ import java.sql.Date;
 public interface IDonation {
     Date getDonationDate();
     Long getDonationId();
-    double getAmount();
+    int getAmount();
     String getComment();
 }

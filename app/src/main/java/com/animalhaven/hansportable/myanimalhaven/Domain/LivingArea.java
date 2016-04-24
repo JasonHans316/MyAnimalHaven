@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class LivingArea implements Serializable, ILivingArea {
+public class LivingArea implements Serializable {
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long livingAreaId;
@@ -17,24 +17,25 @@ public class LivingArea implements Serializable, ILivingArea {
     private String code;
     private boolean active;
     private int spaceAvailable;
-    private List<Animal> animals;
+    private int animalId;
 
     public LivingArea(Builder value)
     {
+        this.livingAreaId = value.id;
         this.name = value.name;
         this.code = value.code;
         this.active = value.active;
         this.spaceAvailable = value.spaceAvailable;
-        this.animals = value.animals;
+        this.animalId = value.animalId;
     }
 
     public int getSpaceAvailable() {
         return spaceAvailable;
     }
 
-    @Override
-    public List<Animal> getAnimals() {
-        return animals;
+
+    public int getAnimal() {
+        return animalId;
     }
 
     public Long getLivingAreaId() {
@@ -58,10 +59,17 @@ public class LivingArea implements Serializable, ILivingArea {
         String code;
         int spaceAvailable;
         boolean active;
-        List<Animal> animals;
+        int animalId;
+        private Long id;
 
-        public Builder(String name) {
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) {
             this.name = name;
+            return this;
         }
 
         public Builder spaceAvailable(int spaceAvailable) {
@@ -69,8 +77,8 @@ public class LivingArea implements Serializable, ILivingArea {
             return this;
         }
 
-        public Builder animals(List<Animal> animals) {
-            this.animals = animals;
+        public Builder animalId(int animalId) {
+            this.animalId = animalId;
             return this;
         }
 
@@ -86,11 +94,12 @@ public class LivingArea implements Serializable, ILivingArea {
 
         public Builder copy(LivingArea value)
         {
+            this.id = value.livingAreaId;
             this.name = value.name;
             this.code = value.code;
             this.active = value.active;
             this.spaceAvailable = value.spaceAvailable;
-            this.animals = value.animals;
+            this.animalId = value.animalId;
             return this;
         }
 

@@ -18,7 +18,7 @@ public class TestDonationFactory {
     public void testCreate()
     {
         DonationFactoryInterface factory = new DonationFactory();
-        Donation original = factory.createDonation( new Date(2016,2,5),500.14, "For Food");
+        Donation original = factory.createDonation( new Date(2016,2,5),500, "For Food");
 
         Assert.assertEquals("For Food", original.getComment());
     }
@@ -27,8 +27,8 @@ public class TestDonationFactory {
     public void testUpdate()
     {
         DonationFactoryInterface factory = new DonationFactory();
-        Donation original = factory.createDonation( new Date(2016,2,5),500.14, "For Food");
-        Donation copy = new Donation.Builder(new Date(2016,3,4)).copy(original).comment("For Medicine").build();
+        Donation original = factory.createDonation( new Date(2016,2,5),500, "For Food");
+        Donation copy = new Donation.Builder().copy(original).comment("For Medicine").build();
         Assert.assertEquals("For Medicine", copy.getComment());
         Assert.assertEquals("For Food", original.getComment());
     }

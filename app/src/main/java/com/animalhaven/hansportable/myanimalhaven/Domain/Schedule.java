@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class Schedule implements Serializable, ISchedule{
+public class Schedule implements Serializable{
     private String activity;
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,9 +39,16 @@ public class Schedule implements Serializable, ISchedule{
     public static class Builder{
         String activity;
         DateTimeRange dtr;
+        private Long id;
 
-        public Builder(String activity) {
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder activity(String activity) {
             this.activity = activity;
+            return this;
         }
 
 

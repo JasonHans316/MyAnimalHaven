@@ -10,6 +10,6 @@ import java.sql.Date;
 public interface DonationFactoryInterface {
     Donation createDonation(
             Date donationDate,
-            double amount,
+            int amount,
             String comment);
 }

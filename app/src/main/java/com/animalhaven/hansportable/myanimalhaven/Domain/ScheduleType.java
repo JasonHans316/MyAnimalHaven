@@ -9,27 +9,26 @@ import java.util.List;
  * Created by Admin on 2016/04/03.
  */
 //@Entity
-public class ScheduleType implements Serializable, IScheduleType{
+public class ScheduleType implements Serializable{
     private String code;
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long scheduleTypeId;
     private String name;
     private boolean active;
-    private List<Schedule> schedules;
+    private int scheduleId;
 
     public ScheduleType(Builder value)
     {
+        this.scheduleTypeId = value.id;
         this.code = value.code;
         this.name = value.name;
         this.active = value.active;
-        this.schedules = value.schedules;
-
+        this.scheduleId = value.scheduleId;
     }
 
-    @Override
-    public List<Schedule> getSchedules() {
-        return schedules;
+    public int getSchedules() {
+        return scheduleId;
     }
 
     public String getCode() {
@@ -53,14 +52,21 @@ public class ScheduleType implements Serializable, IScheduleType{
         int scheduleTyeId;
         String name;
         boolean active;
-        List<Schedule> schedules;
+        int scheduleId;
+        private Long id;
 
-        public Builder(String code) {
-            this.code = code;
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
         }
 
-        public Builder schedules(List<Schedule> schedules) {
-            this.schedules = schedules;
+        public Builder code(String code) {
+            this.code = code;
+            return this;
+        }
+
+        public Builder scheduleId(int scheduleId) {
+            this.scheduleId = scheduleId;
             return this;
         }
 
@@ -76,6 +82,7 @@ public class ScheduleType implements Serializable, IScheduleType{
 
         public Builder copy(ScheduleType value)
         {
+            this.id = value.scheduleTypeId;
             this.code = value.code;
             this.name = value.name;
             this.active = value.active;
