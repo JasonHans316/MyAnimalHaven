@@ -18,7 +18,7 @@ public class TestScheduleFactory {
     public void testCreate()
     {
         ScheduleFactoryInterface factory = new ScheduleFactory();
-        Schedule testObject = factory.createSchedule("Bathing", new DateTimeRange());
+        Schedule testObject = factory.createSchedule("Bathing", 5);
 
         Assert.assertEquals("Bathing", testObject.getActivity());
     }
@@ -27,11 +27,11 @@ public class TestScheduleFactory {
     public void testUpdate()
     {
         ScheduleFactoryInterface factory = new ScheduleFactory();
-        Schedule original = factory.createSchedule("Bathing", new DateTimeRange());
-        Schedule copy = new Schedule.Builder().copy(original).build();
+        Schedule original = factory.createSchedule("Bathing", 5);
+        Schedule copy = new Schedule.Builder().copy(original).activity("Feeding").build();
 
         Assert.assertEquals("Bathing", original.getActivity());
-        Assert.assertEquals("Bathing", copy.getActivity());
+        Assert.assertEquals("Feeding", copy.getActivity());
 
     }
 }
