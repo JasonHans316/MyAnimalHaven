@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyAnimalHaven-42749a924507ee41bf055ee5b52ba71965e77cae.iml" filepath="$PROJECT_DIR$/MyAnimalHaven-42749a924507ee41bf055ee5b52ba71965e77cae.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
