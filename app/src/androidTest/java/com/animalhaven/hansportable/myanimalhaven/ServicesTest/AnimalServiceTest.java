@@ -26,10 +26,10 @@ public class AnimalServiceTest  extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        myService = AnimalServiceImpl.getInstance();
-        GlobalContext.context = this.getContext();
         Intent intent = new Intent(this.getContext(), AnimalServiceImpl.class);
-        this.getContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        GlobalContext.context = this.getContext();
+        myService = AnimalServiceImpl.getInstance();
+        GlobalContext.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     private ServiceConnection connection = new ServiceConnection() {
