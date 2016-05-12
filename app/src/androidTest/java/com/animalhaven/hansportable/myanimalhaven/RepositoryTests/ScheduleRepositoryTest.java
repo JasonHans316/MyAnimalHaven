@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Sch
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.ScheduleRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class ScheduleRepositoryTest extends AndroidTestCase {
     private static final String TAG="SETTINGS TEST";
     private Long id;
 
+    @Test
     public void testScheduleTypeCRUD() throws Exception{
         ScheduleRepository repo = new ScheduleRepositoryImpl(this.getContext());
 

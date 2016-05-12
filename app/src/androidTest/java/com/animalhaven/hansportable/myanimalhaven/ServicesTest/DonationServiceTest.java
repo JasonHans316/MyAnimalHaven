@@ -7,9 +7,8 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.test.AndroidTestCase;
 
-import com.animalhaven.hansportable.myanimalhaven.Config.App;
+import com.animalhaven.hansportable.myanimalhaven.Config.GlobalContext;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Donation;
-import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
 
 import junit.framework.Assert;
 
@@ -17,7 +16,7 @@ import org.junit.Test;
 
 import java.sql.Date;
 
-import Services.Implementations.DonationServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.DonationServiceImpl;
 
 
 /**
@@ -31,9 +30,10 @@ public class DonationServiceTest extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        Context temp = App.getAppContext();
-        Intent intent = new Intent(temp, DonationServiceImpl.class);
-        App.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this.getContext(), DonationServiceImpl.class);
+        GlobalContext.context = this.getContext();
+        myService = DonationServiceImpl.getInstance();
+        GlobalContext.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     private ServiceConnection connection = new ServiceConnection() {

@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Don
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.DonationRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.sql.Date;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class DonationRepositoryTest extends AndroidTestCase {
     private static final String TAG="DONATION TEST";
     private Long id;
 
+    @Test
     public void testDonationCRUD() throws Exception{
         DonationRepository repo = new DonationRepositoryImpl(this.getContext());
 

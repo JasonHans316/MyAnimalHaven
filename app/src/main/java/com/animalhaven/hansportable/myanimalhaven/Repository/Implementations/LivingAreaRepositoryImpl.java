@@ -74,7 +74,7 @@ public class LivingAreaRepositoryImpl extends SQLiteOpenHelper implements Living
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
-                    .animalId(cursor.getInt(cursor.getColumnIndex(COLUMN_ANIMAL_ID)))
+                    .animalId(cursor.getLong(cursor.getColumnIndex(COLUMN_ANIMAL_ID)))
                     .spaceAvailable(cursor.getInt(cursor.getColumnIndex(COLUMN_SPACE)))
                     .build();
             return area;
@@ -142,7 +142,7 @@ public class LivingAreaRepositoryImpl extends SQLiteOpenHelper implements Living
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
                         .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
-                        .animalId(cursor.getInt(cursor.getColumnIndex(COLUMN_ANIMAL_ID)))
+                        .animalId(cursor.getLong(cursor.getColumnIndex(COLUMN_ANIMAL_ID)))
                         .spaceAvailable(cursor.getInt(cursor.getColumnIndex(COLUMN_SPACE)))
                         .build();
                 roles.add(role);

@@ -1,16 +1,12 @@
 package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
-import com.animalhaven.hansportable.myanimalhaven.Domain.Adoption;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
-import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
-import com.animalhaven.hansportable.myanimalhaven.Factories.AnimalFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.AnimalFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.AnimalFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.AnimalFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * Created by Admin on 2016/04/03.

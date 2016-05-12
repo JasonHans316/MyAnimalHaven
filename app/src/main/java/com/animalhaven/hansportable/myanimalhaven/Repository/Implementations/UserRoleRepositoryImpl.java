@@ -70,7 +70,7 @@ public class UserRoleRepositoryImpl extends SQLiteOpenHelper implements UserRole
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
-                    .userId(cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID)))
+                    .userId(cursor.getLong(cursor.getColumnIndex(COLUMN_USER_ID)))
                     .build();
             return scheduleType;
         } else {
@@ -134,7 +134,7 @@ public class UserRoleRepositoryImpl extends SQLiteOpenHelper implements UserRole
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
                         .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
-                        .userId(cursor.getInt(cursor.getColumnIndex(COLUMN_USER_ID)))
+                        .userId(cursor.getLong(cursor.getColumnIndex(COLUMN_USER_ID)))
                         .build();
                 roles.add(role);
             } while (cursor.moveToNext());

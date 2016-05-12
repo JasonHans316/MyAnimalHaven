@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.IScheduleType;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +15,7 @@ public class ScheduleType implements Serializable{
     private Long scheduleTypeId;
     private String name;
     private boolean active;
-    private int scheduleId;
+    private Long scheduleId;
 
     public ScheduleType(Builder value)
     {
@@ -27,7 +26,7 @@ public class ScheduleType implements Serializable{
         this.scheduleId = value.scheduleId;
     }
 
-    public int getSchedules() {
+    public Long getSchedules() {
         return scheduleId;
     }
 
@@ -52,7 +51,7 @@ public class ScheduleType implements Serializable{
         int scheduleTyeId;
         String name;
         boolean active;
-        int scheduleId;
+        Long scheduleId;
         private Long id;
 
         public Builder id(Long id) {
@@ -65,7 +64,7 @@ public class ScheduleType implements Serializable{
             return this;
         }
 
-        public Builder scheduleId(int scheduleId) {
+        public Builder scheduleId(Long scheduleId) {
             this.scheduleId = scheduleId;
             return this;
         }

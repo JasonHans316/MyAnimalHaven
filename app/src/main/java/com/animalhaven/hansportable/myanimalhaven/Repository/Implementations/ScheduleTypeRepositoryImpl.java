@@ -70,7 +70,7 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
-                    .scheduleId(cursor.getInt(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
+                    .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
                     .build();
             return scheduleType;
         } else {
@@ -135,7 +135,7 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
                         .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
-                        .scheduleId(cursor.getInt(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
+                        .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
                         .build();
                 scheduleTypes.add(scheduleType);
             } while (cursor.moveToNext());

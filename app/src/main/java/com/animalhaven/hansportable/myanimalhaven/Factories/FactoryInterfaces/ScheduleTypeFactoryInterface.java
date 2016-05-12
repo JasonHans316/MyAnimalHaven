@@ -1,0 +1,16 @@
+package com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces;
+
+import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
+import com.animalhaven.hansportable.myanimalhaven.Domain.ScheduleType;
+
+import java.util.List;
+
+/**
+ * Created by Hans Portable on 4/7/2016.
+ */
+public interface ScheduleTypeFactoryInterface {
+    ScheduleType createScheduleType(String code,
+                                    String name,
+                                    Long schedules,
+                                    boolean active);
+}

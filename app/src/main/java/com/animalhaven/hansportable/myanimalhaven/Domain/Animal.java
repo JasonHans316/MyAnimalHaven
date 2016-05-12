@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.IAnimal;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,8 +17,8 @@ public class Animal implements Serializable{
     private int weight;
     private int age;
     private String breed;
-    private int adoption;
-    private int schedules;
+    private Long adoption;
+    private Long schedules;
 
     public Animal(Builder value)
     {
@@ -49,11 +48,11 @@ public class Animal implements Serializable{
         return weight;
     }
 
-    public int getSchedules() {
+    public Long getSchedules() {
         return schedules;
     }
 
-    public int getAdoption() {
+    public Long getAdoption() {
         return adoption;
     }
 
@@ -72,8 +71,8 @@ public class Animal implements Serializable{
         private int weight;
         private int age;
         private String breed;
-        private int adoption;
-        private int schedules;
+        private Long adoption;
+        private Long schedules;
 
         public Builder name(String name) {
             this.name = name;
@@ -100,7 +99,7 @@ public class Animal implements Serializable{
             return this;
         }
 
-        public Builder adoption(int adoption) {
+        public Builder adoption(Long adoption) {
             this.adoption = adoption;
             return this;
         }
@@ -110,7 +109,7 @@ public class Animal implements Serializable{
             return this;
         }
 
-        public Builder schedules(int schedules) {
+        public Builder schedules(Long schedules) {
             this.schedules = schedules;
             return this;
         }

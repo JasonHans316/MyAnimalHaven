@@ -7,14 +7,14 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.test.AndroidTestCase;
 
-import com.animalhaven.hansportable.myanimalhaven.Config.App;
+import com.animalhaven.hansportable.myanimalhaven.Config.GlobalContext;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.AnimalServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.AnimalServiceImpl;
 
 
 /**
@@ -26,9 +26,10 @@ public class AnimalServiceTest  extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        Context temp = App.getAppContext();
-        Intent intent = new Intent(temp, AnimalServiceImpl.class);
-        App.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        myService = AnimalServiceImpl.getInstance();
+        GlobalContext.context = this.getContext();
+        Intent intent = new Intent(this.getContext(), AnimalServiceImpl.class);
+        this.getContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     private ServiceConnection connection = new ServiceConnection() {
@@ -51,11 +52,11 @@ public class AnimalServiceTest  extends AndroidTestCase {
     public void testCreateAnimal()
     {
         Animal original = new Animal.Builder()
-                .adoption(-1)
+                .adoption(new Long(1))
                 .age(2)
                 .breed("Cat")
                 .name("Tiger")
-                .schedules(-1)
+                .schedules(new Long(1))
                 .spaceRequired(300)
                 .weight(9)
                 .build();
@@ -67,11 +68,11 @@ public class AnimalServiceTest  extends AndroidTestCase {
     public void testUpdateAnimal()
     {
         Animal original = new Animal.Builder()
-                .adoption(-1)
+                .adoption(new Long(1))
                 .age(2)
                 .breed("Cat")
                 .name("Tiger")
-                .schedules(-1)
+                .schedules(new Long(1))
                 .spaceRequired(300)
                 .weight(9)
                 .build();

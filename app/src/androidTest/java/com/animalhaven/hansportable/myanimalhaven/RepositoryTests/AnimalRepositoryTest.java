@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Ani
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.AnimalRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class AnimalRepositoryTest extends AndroidTestCase {
     private static final String TAG="ANIMAL TEST";
     private Long id;
 
+    @Test
     public void testAnimalCRUD() throws Exception{
         AnimalRepository repo = new AnimalRepositoryImpl(this.getContext());
 
@@ -27,8 +29,8 @@ public class AnimalRepositoryTest extends AndroidTestCase {
                 .spaceRequired(2)
                 .weight(140)
                 .age(4)
-                .adoption(1)
-                .schedules(6)
+                .adoption(new Long(1))
+                .schedules(new Long(6))
                 .build();
         Animal insertedEntity = repo.save(scheduleType);
         id = insertedEntity.getAnimalId();

@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.IAdoption;
 
 import java.io.Serializable;
 import java.util.Date;

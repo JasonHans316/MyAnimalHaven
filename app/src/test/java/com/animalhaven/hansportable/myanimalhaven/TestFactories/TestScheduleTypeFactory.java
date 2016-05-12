@@ -1,15 +1,12 @@
 package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
-import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
 import com.animalhaven.hansportable.myanimalhaven.Domain.ScheduleType;
-import com.animalhaven.hansportable.myanimalhaven.Factories.ScheduleTypeFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.ScheduleTypeFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.ScheduleTypeFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.ScheduleTypeFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * Created by Admin on 2016/04/03.

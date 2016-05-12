@@ -81,9 +81,9 @@ public class UserRepositoryImpl extends SQLiteOpenHelper implements UserReposito
                     .idNumber(cursor.getString(cursor.getColumnIndex(COLUMN_ID_NUMBER)))
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .surname(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
-                    .adoptionId(cursor.getInt(cursor.getColumnIndex(COLUMN_ADOPTION_ID)))
-                    .scheduleId(cursor.getInt(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
-                    .donationId(cursor.getInt(cursor.getColumnIndex(COLUMN_DONATION_ID)))
+                    .adoptionId(cursor.getLong(cursor.getColumnIndex(COLUMN_ADOPTION_ID)))
+                    .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
+                    .donationId(cursor.getLong(cursor.getColumnIndex(COLUMN_DONATION_ID)))
                     .build();
 
             return user;
@@ -156,9 +156,9 @@ public class UserRepositoryImpl extends SQLiteOpenHelper implements UserReposito
                         .idNumber(cursor.getString(cursor.getColumnIndex(COLUMN_ID_NUMBER)))
                         .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                         .surname(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
-                        .adoptionId(cursor.getInt(cursor.getColumnIndex(COLUMN_ADOPTION_ID)))
-                        .scheduleId(cursor.getInt(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
-                        .donationId(cursor.getInt(cursor.getColumnIndex(COLUMN_DONATION_ID)))
+                        .adoptionId(cursor.getLong(cursor.getColumnIndex(COLUMN_ADOPTION_ID)))
+                        .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
+                        .donationId(cursor.getLong(cursor.getColumnIndex(COLUMN_DONATION_ID)))
                         .build();
                 users.add(user);
             } while (cursor.moveToNext());

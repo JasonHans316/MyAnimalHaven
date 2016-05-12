@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.ISchedule;
 
 import java.io.Serializable;
 

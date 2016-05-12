@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.IUser;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,9 +15,9 @@ public class User implements Serializable{
     private String name;
     private String surname;
     private String idNumber;
-    private int adoptionId;
-    private int donationId;
-    private int scheduleId;
+    private Long adoptionId;
+    private Long donationId;
+    private Long scheduleId;
 
     public User(Builder value)
     {
@@ -31,15 +30,15 @@ public class User implements Serializable{
         this.scheduleId = value.scheduleId;
     }
 
-    public int getAdoption() {
+    public Long getAdoption() {
         return adoptionId;
     }
 
-    public int getDonation() {
+    public Long getDonation() {
         return donationId;
     }
 
-    public int getSchedule() {
+    public Long getSchedule() {
         return scheduleId;
     }
 
@@ -65,9 +64,9 @@ public class User implements Serializable{
         String name;
         String surname;
         String idNumber;
-        int adoptionId;
-        int donationId;
-        int scheduleId;
+        Long adoptionId;
+        Long donationId;
+        Long scheduleId;
         private Long id;
 
         public Builder id(Long id) {
@@ -81,17 +80,17 @@ public class User implements Serializable{
             return this;
         }
 
-        public Builder adoptionId(int adoptionId) {
+        public Builder adoptionId(Long adoptionId) {
             this.adoptionId = adoptionId;
             return this;
         }
 
-        public Builder donationId(int donationId) {
+        public Builder donationId(Long donationId) {
             this.donationId = donationId;
             return this;
         }
 
-        public Builder scheduleId(int scheduleId) {
+        public Builder scheduleId(Long scheduleId) {
             this.scheduleId = scheduleId;
             return this;
         }

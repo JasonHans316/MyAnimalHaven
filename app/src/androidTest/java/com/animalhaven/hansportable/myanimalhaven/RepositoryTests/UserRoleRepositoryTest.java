@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Use
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.UserRoleRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class UserRoleRepositoryTest extends AndroidTestCase {
     private static final String TAG="USER ROLE TEST";
     private Long id;
 
+    @Test
     public void testUserRoleCRUD() throws Exception{
          UserRoleRepository repo = new UserRoleRepositoryImpl(this.getContext());
 
@@ -24,7 +26,7 @@ public class UserRoleRepositoryTest extends AndroidTestCase {
                 .id(id)
                 .code("L001")
                 .name("Elephant's Lunch")
-                .userId(1)
+                .userId(new Long(1))
                 .build();
         UserRole insertedEntity = repo.save(scheduleType);
         id = insertedEntity.getUserRoleId();

@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Ado
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.AdoptionRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.sql.Date;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class AdoptionRepositoryTest extends AndroidTestCase {
     private static final String TAG="ADOPTION TEST";
     private Long id;
 
+    @Test
     public void testAdoptionCRUD() throws Exception{
         AdoptionRepository repo = new AdoptionRepositoryImpl(this.getContext());
 

@@ -1,10 +1,9 @@
 package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
-import com.animalhaven.hansportable.myanimalhaven.Domain.DateTimeRange;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
-import com.animalhaven.hansportable.myanimalhaven.Factories.ScheduleFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.ScheduleFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.ScheduleFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.ScheduleFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -7,7 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.test.AndroidTestCase;
 
-import com.animalhaven.hansportable.myanimalhaven.Config.App;
+import com.animalhaven.hansportable.myanimalhaven.Config.GlobalContext;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
 import com.animalhaven.hansportable.myanimalhaven.Domain.LivingArea;
 
@@ -15,7 +15,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.LivingAreaServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.LivingAreaServiceImpl;
 
 /**
  * Created by Admin on 2016/05/08.
@@ -27,8 +27,10 @@ public class LivingAreaServiceTest extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        Intent intent = new Intent(App.getAppContext(), LivingAreaServiceImpl.class);
-        App.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this.getContext(), LivingAreaServiceImpl.class);
+        GlobalContext.context = this.getContext();
+        myService = LivingAreaServiceImpl.getInstance();
+        GlobalContext.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     private ServiceConnection connection = new ServiceConnection() {
@@ -49,16 +51,17 @@ public class LivingAreaServiceTest extends AndroidTestCase {
 
     @Test
     public void testCreateArea() {
-        LivingArea record = new LivingArea.Builder().animalId(-1).code("T001").name("Kennel").spaceAvailable(500).active(true).build();
+        LivingArea record = new LivingArea.Builder().animalId(new Long(1)).code("T001").name("Kennel").spaceAvailable(500).active(true).build();
         LivingArea result = myService.createLivingArea(record);
         Assert.assertNotNull(result.getLivingAreaId());
     }
 
     @Test
     public void testHouseAnimal() {
-        Animal animal = new Animal.Builder().adoption(0).age(2).breed("Dog").name("Bingo").schedules(0).spaceRequired(400).weight(25).build();
-        LivingArea record = new LivingArea.Builder().animalId(animal.getAnimalId().intValue()).code("T001").name("Kennel").spaceAvailable(500).active(true).build();
-        Assert.assertTrue(myService.houseAnimal(record, animal));
+        Animal animal = new Animal.Builder().adoption(new Long(1)).age(2).breed("Dog").name("Bingo").schedules(new Long(1)).spaceRequired(400).weight(25).build();
+        LivingArea record = new LivingArea.Builder().animalId(animal.getAnimalId()).code("T001").name("Kennel").spaceAvailable(500).active(true).build();
+        LivingArea area = myService.createLivingArea(record);
+        Assert.assertTrue(myService.houseAnimal(area, animal));
     }
 
     @Test
@@ -76,7 +79,7 @@ public class LivingAreaServiceTest extends AndroidTestCase {
     @Test
     public void testRelocateAnimal()
     {
-        Animal animal = new Animal.Builder().adoption(0).age(2).breed("Dog").name("Bingo").schedules(0).spaceRequired(400).weight(25).build();
+        Animal animal = new Animal.Builder().adoption(new Long(1)).age(2).breed("Dog").name("Bingo").schedules(new Long(1)).spaceRequired(400).weight(25).build();
         Assert.assertNotNull(myService.relocateAnimal(animal));
     }
 }

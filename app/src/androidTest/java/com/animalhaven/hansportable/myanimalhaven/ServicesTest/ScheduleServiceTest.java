@@ -7,14 +7,14 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.test.AndroidTestCase;
 
-import com.animalhaven.hansportable.myanimalhaven.Config.App;
+import com.animalhaven.hansportable.myanimalhaven.Config.GlobalContext;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.ScheduleServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.ScheduleServiceImpl;
 
 /**
  * Created by Admin on 2016/05/08.
@@ -25,9 +25,10 @@ public class ScheduleServiceTest extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        Context temp = App.getAppContext();
-        Intent intent = new Intent(temp, ScheduleServiceImpl.class);
-        App.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this.getContext(), ScheduleServiceImpl.class);
+        GlobalContext.context = this.getContext();
+        scheduleService = ScheduleServiceImpl.getInstance();
+        GlobalContext.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     private ServiceConnection connection = new ServiceConnection() {

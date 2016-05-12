@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Liv
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.LivingAreaRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class LivingAreaRepositoryTest extends AndroidTestCase {
     private static final String TAG="LIVING AREA TEST";
     private Long id;
 
+    @Test
     public void testLivingAreaCRUD() throws Exception{
         LivingAreaRepository repo = new LivingAreaRepositoryImpl(this.getContext());
 
@@ -24,7 +26,7 @@ public class LivingAreaRepositoryTest extends AndroidTestCase {
                 .id(id)
                 .code("L001")
                 .name("Big Cat Enclosure")
-                .animalId(1)
+                .animalId(new Long(1))
                 .spaceAvailable(300)
                 .build();
         LivingArea insertedEntity = repo.save(scheduleType);

@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Sch
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.ScheduleTypeRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import java.util.Set;
 public class ScheduleTypeRepositoryTest extends AndroidTestCase {
     private static final String TAG="SCHEDULE TYPES TEST";
     private Long id;
-
+    @Test
     public void testScheduleTypeCRUD() throws Exception{
         ScheduleTypeRepository repo = new ScheduleTypeRepositoryImpl(this.getContext());
 
@@ -24,7 +25,7 @@ public class ScheduleTypeRepositoryTest extends AndroidTestCase {
                 .id(id)
                 .code("T001")
                 .name("Feeding")
-                .scheduleId(1)
+                .scheduleId(new Long(1))
                 .build();
         ScheduleType insertedEntity = repo.save(scheduleType);
         id = insertedEntity.getScheduleTypeId();

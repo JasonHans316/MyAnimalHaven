@@ -1,6 +1,5 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.ILivingArea;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,7 +16,7 @@ public class LivingArea implements Serializable {
     private String code;
     private boolean active;
     private int spaceAvailable;
-    private int animalId;
+    private Long animalId;
 
     public LivingArea(Builder value)
     {
@@ -34,7 +33,7 @@ public class LivingArea implements Serializable {
     }
 
 
-    public int getAnimal() {
+    public Long getAnimal() {
         return animalId;
     }
 
@@ -59,7 +58,7 @@ public class LivingArea implements Serializable {
         String code;
         int spaceAvailable;
         boolean active;
-        int animalId;
+        Long animalId;
         private Long id;
 
         public Builder id(Long id) {
@@ -77,7 +76,7 @@ public class LivingArea implements Serializable {
             return this;
         }
 
-        public Builder animalId(int animalId) {
+        public Builder animalId(Long animalId) {
             this.animalId = animalId;
             return this;
         }

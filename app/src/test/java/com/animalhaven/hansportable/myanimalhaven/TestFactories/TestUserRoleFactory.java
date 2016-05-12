@@ -1,15 +1,12 @@
 package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
-import com.animalhaven.hansportable.myanimalhaven.Domain.User;
 import com.animalhaven.hansportable.myanimalhaven.Domain.UserRole;
-import com.animalhaven.hansportable.myanimalhaven.Factories.UserRoleFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.UserRoleFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.UserRoleFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.UserRoleFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * Created by Admin on 2016/04/03.

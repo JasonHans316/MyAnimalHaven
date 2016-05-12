@@ -2,8 +2,8 @@ package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
 import com.animalhaven.hansportable.myanimalhaven.Domain.Adoption;
-import com.animalhaven.hansportable.myanimalhaven.Factories.AdoptionFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.AdoptionFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.AdoptionFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.AdoptionFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;

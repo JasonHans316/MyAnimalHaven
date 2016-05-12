@@ -1,7 +1,6 @@
 package com.animalhaven.hansportable.myanimalhaven.Domain;
 //import javax.persistence.*;
 
-import com.animalhaven.hansportable.myanimalhaven.DomainInterfaces.IUserRole;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +17,7 @@ public class UserRole implements Serializable {
     private String name;
     private String code;
     private boolean active;
-    private int userId;
+    private Long userId;
 
     public UserRole(Builder value)
     {
@@ -29,7 +28,7 @@ public class UserRole implements Serializable {
         this.userId = value.userId;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
@@ -53,7 +52,7 @@ public class UserRole implements Serializable {
         String name;
         String code;
         boolean active;
-        int userId;
+        Long userId;
         private Long id;
 
         public Builder id(Long id) {
@@ -72,7 +71,7 @@ public class UserRole implements Serializable {
             return this;
         }
 
-        public Builder userId(int userId) {
+        public Builder userId(Long userId) {
             this.userId = userId;
             return this;
         }

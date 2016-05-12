@@ -2,8 +2,8 @@ package com.animalhaven.hansportable.myanimalhaven.TestFactories;
 
 
 import com.animalhaven.hansportable.myanimalhaven.Domain.Donation;
-import com.animalhaven.hansportable.myanimalhaven.Factories.DonationFactory;
-import com.animalhaven.hansportable.myanimalhaven.FactoryInterfaces.DonationFactoryInterface;
+import com.animalhaven.hansportable.myanimalhaven.Factories.Implementations.DonationFactory;
+import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.DonationFactoryInterface;
 
 import org.junit.Assert;
 import org.junit.Test;

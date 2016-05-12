@@ -7,6 +7,7 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Use
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.UserRepository;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class UserRepositoryTest extends AndroidTestCase {
     private static final String TAG="USER TEST";
     private Long id;
 
+    @Test
     public void testUserCRUD() throws Exception{
         UserRepository repo = new UserRepositoryImpl(this.getContext());
 
@@ -25,9 +27,9 @@ public class UserRepositoryTest extends AndroidTestCase {
                 .name("Jason")
                 .surname("Hans")
                 .idNumber("6655214877325")
-                .donationId(2)
-                .adoptionId(1)
-                .scheduleId(6)
+                .donationId(new Long(2))
+                .adoptionId(new Long(1))
+                .scheduleId(new Long(6))
                 .build();
         User insertedEntity = repo.save(scheduleType);
         id = insertedEntity.getUserId();
