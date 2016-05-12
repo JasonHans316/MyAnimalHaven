@@ -15,7 +15,6 @@ public class ScheduleType implements Serializable{
     private Long scheduleTypeId;
     private String name;
     private boolean active;
-    private Long scheduleId;
 
     public ScheduleType(Builder value)
     {
@@ -23,12 +22,8 @@ public class ScheduleType implements Serializable{
         this.code = value.code;
         this.name = value.name;
         this.active = value.active;
-        this.scheduleId = value.scheduleId;
     }
 
-    public Long getSchedules() {
-        return scheduleId;
-    }
 
     public String getCode() {
         return code;
@@ -48,10 +43,9 @@ public class ScheduleType implements Serializable{
 
     public static class Builder{
         String code;
-        int scheduleTyeId;
         String name;
         boolean active;
-        Long scheduleId;
+        Long scheduleTyeId;
         private Long id;
 
         public Builder id(Long id) {
@@ -64,8 +58,8 @@ public class ScheduleType implements Serializable{
             return this;
         }
 
-        public Builder scheduleId(Long scheduleId) {
-            this.scheduleId = scheduleId;
+        public Builder scheduleTyeId(Long scheduleTyeId) {
+            this.scheduleTyeId = scheduleTyeId;
             return this;
         }
 

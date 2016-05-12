@@ -26,14 +26,12 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_CODE = "code";
-    public static final String COLUMN_SCHEDULE_ID = "schedule_id";
 
     private static final String TABLE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
             + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_NAME + " TEXT  NOT NULL , "
-            + COLUMN_CODE + " TEXT NOT NULL ,"
-            + COLUMN_SCHEDULE_ID + " INTEGER NOT NULL );";
+            + COLUMN_CODE + " TEXT NOT NULL );";
 
     public ScheduleTypeRepositoryImpl(Context context) {
         super(context, DBConstants.DB_NAME, null, DBConstants.DB_VERSION);//Declared in Config package
@@ -56,8 +54,7 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
                 new String[]{
                         COLUMN_ID,
                         COLUMN_CODE,
-                        COLUMN_NAME,
-                        COLUMN_SCHEDULE_ID
+                        COLUMN_NAME
                 },
                 COLUMN_ID + " =? ",
                 new String[]{String.valueOf(id)},
@@ -70,7 +67,6 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
-                    .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
                     .build();
             return scheduleType;
         } else {

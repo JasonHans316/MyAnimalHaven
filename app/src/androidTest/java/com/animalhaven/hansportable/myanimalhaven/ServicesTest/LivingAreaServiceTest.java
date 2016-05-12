@@ -15,12 +15,14 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.AnimalServiceImpl;
 import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.LivingAreaServiceImpl;
 
 /**
  * Created by Admin on 2016/05/08.
  */
 public class LivingAreaServiceTest extends AndroidTestCase {
+    private AnimalServiceImpl animalService;
     private LivingAreaServiceImpl myService;
     private boolean isBound;
 
@@ -30,6 +32,7 @@ public class LivingAreaServiceTest extends AndroidTestCase {
         Intent intent = new Intent(this.getContext(), LivingAreaServiceImpl.class);
         GlobalContext.context = this.getContext();
         myService = LivingAreaServiceImpl.getInstance();
+        animalService = AnimalServiceImpl.getInstance();
         GlobalContext.getAppContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
@@ -80,6 +83,10 @@ public class LivingAreaServiceTest extends AndroidTestCase {
     public void testRelocateAnimal()
     {
         Animal animal = new Animal.Builder().adoption(new Long(1)).age(2).breed("Dog").name("Bingo").schedules(new Long(1)).spaceRequired(400).weight(25).build();
-        Assert.assertNotNull(myService.relocateAnimal(animal));
+        animal = animalService.storeAnimal(animal);
+        if(myService.findAvailability(animal.getSpaceRequired()) == null)
+                Assert.assertNotNull(myService.relocateAnimal(animal));
+        else
+            Assert.assertTrue(true);
     }
 }
