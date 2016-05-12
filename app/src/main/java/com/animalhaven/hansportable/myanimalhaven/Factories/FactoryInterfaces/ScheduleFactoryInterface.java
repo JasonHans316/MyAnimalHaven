@@ -8,5 +8,6 @@ import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
  */
 public interface ScheduleFactoryInterface {
     Schedule createSchedule(String activity,
+                            Long ScheduleTypeId,
                             int dtr);
 }

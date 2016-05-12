@@ -23,6 +23,7 @@ import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.Anima
 public class AnimalServiceTest  extends AndroidTestCase {
     private AnimalServiceImpl myService;
     private boolean isBound;
+    Long newAnimalId;
     @Override
     public void setUp() throws Exception {
         super.setUp();
@@ -61,6 +62,8 @@ public class AnimalServiceTest  extends AndroidTestCase {
                 .weight(9)
                 .build();
         original = myService.storeAnimal(original);
+        if(original.getAnimalId() != null)
+            newAnimalId = original.getAnimalId();
         Assert.assertNotNull(original.getAnimalId());
     }
 
@@ -69,14 +72,18 @@ public class AnimalServiceTest  extends AndroidTestCase {
     {
         Animal original = new Animal.Builder()
                 .adoption(new Long(1))
-                .age(2)
+                .age(3)
                 .breed("Cat")
                 .name("Tiger")
                 .schedules(new Long(1))
                 .spaceRequired(300)
-                .weight(9)
+                .weight(14)
                 .build();
-        Assert.assertTrue(myService.updateAnimalDetails(original));
+
+        original = myService.storeAnimal(original);
+
+        Animal updatedAnimal = new Animal.Builder().copy(original).age(4).build();
+        Assert.assertTrue(myService.updateAnimalDetails(updatedAnimal));
     }
 
     @Test

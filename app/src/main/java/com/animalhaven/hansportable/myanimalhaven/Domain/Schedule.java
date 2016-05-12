@@ -13,6 +13,7 @@ public class Schedule implements Serializable{
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long scheduleId;
     private int timeRequired;
+    private Long scheduleTypeId;
 
     public Schedule() {
     }
@@ -22,6 +23,7 @@ public class Schedule implements Serializable{
         this.scheduleId = value.id;
         this.activity = value.activity;
         this.timeRequired = value.timeRequired;
+        this.scheduleTypeId = value.scheduleTypeId;
     }
     
     public String getActivity() {
@@ -32,6 +34,10 @@ public class Schedule implements Serializable{
         return scheduleId;
     }
 
+    public Long getScheduleTypeId() {
+        return scheduleTypeId;
+    }
+
     public int getTimeRequired() {
         return timeRequired;
     }
@@ -40,6 +46,7 @@ public class Schedule implements Serializable{
         String activity;
         int timeRequired;
         private Long id;
+        private Long scheduleTypeId;
 
         public Builder id(Long id) {
             this.id = id;
@@ -51,6 +58,11 @@ public class Schedule implements Serializable{
             return this;
         }
 
+        public Builder scheduleTypeId(Long scheduleTypeId)
+        {
+            this.scheduleTypeId = scheduleTypeId;
+            return this;
+        }
 
         public Builder timeRequired(int timeRequired) {
             this.timeRequired = timeRequired;

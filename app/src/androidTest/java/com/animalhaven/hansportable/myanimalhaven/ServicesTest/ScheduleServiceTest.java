@@ -49,7 +49,7 @@ public class ScheduleServiceTest extends AndroidTestCase {
 
     @Test
     public void testCreateSchedule(){
-        Schedule record = new Schedule.Builder().timeRequired(25).activity("Feeding").build();
+        Schedule record = new Schedule.Builder().timeRequired(25).scheduleTypeId(new Long(5)).activity("Feeding").build();
         Schedule result = scheduleService.createSchedule(record);
         Assert.assertNotNull(result.getScheduleId());
     }

@@ -26,11 +26,13 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_ACTIVITY = "activity";
     public static final String COLUMN_TIME_REQUIRED = "time_required";
+    public static final String COLUMN_SCHEDULE_TYPE = "schedule_type";
 
     private static final String TABLE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
             + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_ACTIVITY + " TEXT  NOT NULL , "
+            + COLUMN_SCHEDULE_TYPE + " INTEGER , "
             + COLUMN_TIME_REQUIRED + " INTEGER NOT NULL );";
 
     public ScheduleRepositoryImpl(Context context) {
@@ -53,6 +55,7 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
                 new String[]{
                         COLUMN_ID,
                         COLUMN_ACTIVITY,
+                        COLUMN_SCHEDULE_TYPE,
                         COLUMN_TIME_REQUIRED
                 },
                 COLUMN_ID + " =? ",
@@ -65,6 +68,7 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
             final Schedule schedule = new Schedule.Builder()
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .activity(cursor.getString(cursor.getColumnIndex(COLUMN_ACTIVITY)))
+                    .scheduleTypeId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_TYPE)))
                     .timeRequired(cursor.getInt(cursor.getColumnIndex(COLUMN_TIME_REQUIRED)))
                     .build();
             return schedule;
@@ -79,6 +83,7 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, entity.getScheduleId());
         values.put(COLUMN_ACTIVITY, entity.getActivity());
+        values.put(COLUMN_SCHEDULE_TYPE, entity.getScheduleTypeId());
         values.put(COLUMN_TIME_REQUIRED, entity.getTimeRequired());
         long id = db.insertOrThrow(TABLE_NAME, null, values);
         Schedule insertedEntity = new Schedule.Builder()
@@ -94,6 +99,7 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, entity.getScheduleId());
         values.put(COLUMN_ACTIVITY, entity.getActivity());
+        values.put(COLUMN_SCHEDULE_TYPE, entity.getScheduleId());
         values.put(COLUMN_TIME_REQUIRED, entity.getTimeRequired());
         db.update(
                 TABLE_NAME,
@@ -126,6 +132,7 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
                 final Schedule schedule = new Schedule.Builder()
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .activity(cursor.getString(cursor.getColumnIndex(COLUMN_ACTIVITY)))
+                        .scheduleTypeId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_TYPE)))
                         .timeRequired(cursor.getInt(cursor.getColumnIndex(COLUMN_TIME_REQUIRED)))
                         .build();
                 schedules.add(schedule);
@@ -138,7 +145,6 @@ public class ScheduleRepositoryImpl  extends SQLiteOpenHelper implements Schedul
     public int deleteAll() {
         open();
         int rowsDeleted = db.delete(TABLE_NAME,null,null);
-        close();
         return rowsDeleted;
     }
 

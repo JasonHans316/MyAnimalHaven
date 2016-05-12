@@ -8,11 +8,13 @@ import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.Sc
  */
 public class ScheduleFactory implements ScheduleFactoryInterface{
     public Schedule createSchedule(String activity,
+                                   Long ScheduleTypeId,
                                    int dtr)
     {
         return new Schedule.Builder()
                 .activity(activity)
                 .timeRequired(dtr)
+                .scheduleTypeId(ScheduleTypeId)
                 .build();
     }
 

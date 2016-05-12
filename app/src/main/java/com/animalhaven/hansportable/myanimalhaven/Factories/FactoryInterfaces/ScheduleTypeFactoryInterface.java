@@ -11,6 +11,5 @@ import java.util.List;
 public interface ScheduleTypeFactoryInterface {
     ScheduleType createScheduleType(String code,
                                     String name,
-                                    Long schedules,
                                     boolean active);
 }

@@ -74,24 +74,25 @@ public class AnimalServiceImpl extends Service implements AnimalServiceInterface
     public boolean updateAnimalDetails(Animal animal) {
             try{
 
-                Animal found = repository.findById(animal.getAnimalId());
+                //Animal found = repository.findById(animal.getAnimalId());
                 Animal updatedAnimal = new Animal.Builder()
-                        .adoption(found.getAdoption())
-                        .age(found.getAge())
-                        .breed(found.getBreed())
-                        .id(found.getAnimalId())
-                        .name(found.getName())
-                        .schedules(found.getSchedules())
-                        .spaceRequired(found.getSpaceRequired())
-                        .weight(found.getWeight())
+                        .adoption(animal.getAdoption())
+                        .age(animal.getAge())
+                        .breed(animal.getBreed())
+                        .id(animal.getAnimalId())
+                        .name(animal.getName())
+                        .schedules(animal.getSchedules())
+                        .spaceRequired(animal.getSpaceRequired())
+                        .weight(animal.getWeight())
                         .build();
                 return repository.update(updatedAnimal).getAnimalId() == animal.getAnimalId();
             }
             catch(Exception x)
             {
                 x.printStackTrace();
+                return false;
             }
-        return false;
+
         }
 
     /*

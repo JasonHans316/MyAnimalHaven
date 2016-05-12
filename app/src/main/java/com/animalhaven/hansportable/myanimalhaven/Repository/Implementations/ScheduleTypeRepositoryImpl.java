@@ -85,7 +85,6 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
         values.put(COLUMN_ID, entity.getScheduleTypeId());
         values.put(COLUMN_NAME, entity.getName());
         values.put(COLUMN_CODE, entity.getCode());
-        values.put(COLUMN_SCHEDULE_ID, entity.getSchedules());
         long id = db.insertOrThrow(TABLE_NAME, null, values);
         ScheduleType insertedEntity = new ScheduleType.Builder()
                 .copy(entity)
@@ -100,7 +99,6 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
         open();
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, entity.getScheduleTypeId());
-        values.put(COLUMN_SCHEDULE_ID, entity.getSchedules());
         values.put(COLUMN_CODE, entity.getCode());
         values.put(COLUMN_NAME, entity.getName());
         db.update(
@@ -135,7 +133,6 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
                         .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                         .code(cursor.getString(cursor.getColumnIndex(COLUMN_CODE)))
                         .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
-                        .scheduleId(cursor.getLong(cursor.getColumnIndex(COLUMN_SCHEDULE_ID)))
                         .build();
                 scheduleTypes.add(scheduleType);
             } while (cursor.moveToNext());

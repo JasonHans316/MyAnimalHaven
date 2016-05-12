@@ -25,7 +25,6 @@ public class ScheduleTypeRepositoryTest extends AndroidTestCase {
                 .id(id)
                 .code("T001")
                 .name("Feeding")
-                .scheduleId(new Long(1))
                 .build();
         ScheduleType insertedEntity = repo.save(scheduleType);
         id = insertedEntity.getScheduleTypeId();

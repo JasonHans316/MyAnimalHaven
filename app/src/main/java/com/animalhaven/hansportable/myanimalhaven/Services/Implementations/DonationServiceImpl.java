@@ -78,7 +78,7 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
                 if(myList.get(i).getAmount() == amount)
                     result.add(myList.get(i));
 
-            if(result.size() > 1)
+            if(result.size() > 0)
                 return result;
             else
                 return new ArrayList<Donation>();
@@ -87,8 +87,8 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
         catch(Exception x)
         {
             x.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -105,7 +105,7 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
                 if(myList.get(i).getAmount() < amount)
                     result.add(myList.get(i));
 
-            if(result.size() > 1)
+            if(result.size() > 0)
                 return result;
             else
                 return new ArrayList<Donation>();
@@ -114,8 +114,8 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
         catch(Exception x)
         {
             x.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override
@@ -132,7 +132,7 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
                 if(myList.get(i).getAmount() > amount)
                     result.add(myList.get(i));
 
-            if(result.size() > 1)
+            if(result.size() > 0)
                 return result;
             else
                 return new ArrayList<Donation>();
@@ -141,7 +141,7 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
         catch(Exception x)
         {
             x.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

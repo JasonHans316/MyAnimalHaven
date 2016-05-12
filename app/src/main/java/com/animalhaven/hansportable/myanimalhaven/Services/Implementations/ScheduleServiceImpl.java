@@ -72,7 +72,7 @@ public class ScheduleServiceImpl extends Service implements ScheduleServiceInter
         catch(Exception x)
         {
             x.printStackTrace();
+            return false;
         }
-        return false;
     }
 }

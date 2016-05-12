@@ -9,14 +9,12 @@ import com.animalhaven.hansportable.myanimalhaven.Factories.FactoryInterfaces.Sc
 public class ScheduleTypeFactory implements ScheduleTypeFactoryInterface {
     public ScheduleType createScheduleType(String code,
                                            String name,
-                                           Long schedules,
                                            boolean active)
     {
         return new ScheduleType.Builder()
                 .code(code)
                 .name(name)
                 .active(active)
-                .scheduleId(schedules)
                 .build();
     }
 }
