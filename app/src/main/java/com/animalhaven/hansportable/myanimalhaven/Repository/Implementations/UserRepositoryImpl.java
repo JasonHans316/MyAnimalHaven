@@ -178,6 +178,7 @@ public class UserRepositoryImpl extends SQLiteOpenHelper implements UserReposito
     public void onCreate(SQLiteDatabase db) {
         try{
             db.execSQL(TABLE_CREATE);
+            DBConstants.DB_VERSION += 1;
         }
         catch(Exception x)
         {

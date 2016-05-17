@@ -156,6 +156,7 @@ public class DonationRepositoryImpl extends SQLiteOpenHelper implements Donation
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
+        DBConstants.DB_VERSION += 1;
     }
 
     @Override

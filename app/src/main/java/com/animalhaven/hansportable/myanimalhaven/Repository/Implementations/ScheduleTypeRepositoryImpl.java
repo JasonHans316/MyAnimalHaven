@@ -148,6 +148,7 @@ public class ScheduleTypeRepositoryImpl extends SQLiteOpenHelper implements Sche
     public void onCreate(SQLiteDatabase db) {
         try{
             db.execSQL(TABLE_CREATE);
+            DBConstants.DB_VERSION += 1;
         }
         catch(Exception x)
         {

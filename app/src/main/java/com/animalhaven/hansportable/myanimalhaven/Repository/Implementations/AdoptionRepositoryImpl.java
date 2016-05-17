@@ -146,6 +146,7 @@ public class AdoptionRepositoryImpl extends SQLiteOpenHelper implements Adoption
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
+        DBConstants.DB_VERSION += 1;
     }
 
     @Override
