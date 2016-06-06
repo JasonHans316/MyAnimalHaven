@@ -9,7 +9,6 @@ import android.test.AndroidTestCase;
 
 import com.animalhaven.hansportable.myanimalhaven.Config.App;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Donation;
-import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
 
 import junit.framework.Assert;
 
@@ -17,7 +16,7 @@ import org.junit.Test;
 
 import java.sql.Date;
 
-import Services.Implementations.DonationServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.DonationServiceImpl;
 
 
 /**

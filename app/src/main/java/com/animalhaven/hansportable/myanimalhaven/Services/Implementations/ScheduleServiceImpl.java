@@ -1,4 +1,4 @@
-package Services.Implementations;
+package com.animalhaven.hansportable.myanimalhaven.Services.Implementations;
 
 import android.app.Service;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import com.animalhaven.hansportable.myanimalhaven.Config.App;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Schedule;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.ScheduleRepositoryImpl;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.ScheduleRepository;
-import Services.Interfaces.ScheduleServiceInterface;
+import com.animalhaven.hansportable.myanimalhaven.Services.Interfaces.ScheduleServiceInterface;
 
 /**
  * Created by Admin on 2016/05/08.

@@ -14,7 +14,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.AnimalServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.AnimalServiceImpl;
 
 
 /**

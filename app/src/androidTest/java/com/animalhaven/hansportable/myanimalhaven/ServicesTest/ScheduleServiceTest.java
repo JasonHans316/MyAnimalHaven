@@ -14,7 +14,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.ScheduleServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.ScheduleServiceImpl;
 
 /**
  * Created by Admin on 2016/05/08.

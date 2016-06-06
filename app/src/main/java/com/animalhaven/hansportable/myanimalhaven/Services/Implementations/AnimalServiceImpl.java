@@ -1,4 +1,4 @@
-package Services.Implementations;
+package com.animalhaven.hansportable.myanimalhaven.Services.Implementations;
 
 import android.app.Service;
 import android.content.Intent;
@@ -11,10 +11,9 @@ import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.Ani
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.AnimalRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
-import Services.Interfaces.AnimalServiceInterface;
+import com.animalhaven.hansportable.myanimalhaven.Services.Interfaces.AnimalServiceInterface;
 
 
 /**

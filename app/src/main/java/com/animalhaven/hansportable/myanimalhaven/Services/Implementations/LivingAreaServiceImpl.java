@@ -1,4 +1,4 @@
-package Services.Implementations;
+package com.animalhaven.hansportable.myanimalhaven.Services.Implementations;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,23 +7,13 @@ import android.os.IBinder;
 
 import com.animalhaven.hansportable.myanimalhaven.Config.App;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
-import com.animalhaven.hansportable.myanimalhaven.Domain.Donation;
 import com.animalhaven.hansportable.myanimalhaven.Domain.LivingArea;
-import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.AnimalRepositoryImpl;
-import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.DonationRepositoryImpl;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.LivingAreaRepositoryImpl;
-import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.AnimalRepository;
-import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.DonationRepository;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.LivingAreaRepository;
 
-import junit.framework.Assert;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
-import Services.Interfaces.LivingAreaServiceInterface;
+import com.animalhaven.hansportable.myanimalhaven.Services.Interfaces.LivingAreaServiceInterface;
 
 /**
  * Created by Admin on 2016/05/08.

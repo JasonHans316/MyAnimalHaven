@@ -15,7 +15,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import Services.Implementations.LivingAreaServiceImpl;
+import com.animalhaven.hansportable.myanimalhaven.Services.Implementations.LivingAreaServiceImpl;
 
 /**
  * Created by Admin on 2016/05/08.

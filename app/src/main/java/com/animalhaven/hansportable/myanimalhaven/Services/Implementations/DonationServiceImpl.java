@@ -1,20 +1,18 @@
-package Services.Implementations;
+package com.animalhaven.hansportable.myanimalhaven.Services.Implementations;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 
-import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
 import com.animalhaven.hansportable.myanimalhaven.Domain.Donation;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Implementations.DonationRepositoryImpl;
 import com.animalhaven.hansportable.myanimalhaven.Repository.Interfaces.DonationRepository;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
-import Services.Interfaces.DonationServiceInterface;
+import com.animalhaven.hansportable.myanimalhaven.Services.Interfaces.DonationServiceInterface;
 
 /**
  * Created by Admin on 2016/05/08.
@@ -48,6 +46,23 @@ public class DonationServiceImpl extends Service implements DonationServiceInter
         public DonationServiceImpl getService() {
             return DonationServiceImpl.this;
         }
+    }
+
+    public ArrayList<Donation> getAllDonations()
+    {
+        try{
+            ArrayList<Donation> myList = new ArrayList<>();
+            ArrayList<Donation> result = new ArrayList<>();
+            Set<Donation> mySet = donationRepository.findAll();
+
+            if(!myList.addAll(mySet))
+                return null;
+        }
+        catch(Exception x)
+        {
+            x.printStackTrace();
+        }
+        return null;
     }
 
 /**

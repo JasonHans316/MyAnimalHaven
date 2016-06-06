@@ -1,11 +1,9 @@
-package Services.Interfaces;
+package com.animalhaven.hansportable.myanimalhaven.Services.Interfaces;
 
 import com.animalhaven.hansportable.myanimalhaven.Domain.Animal;
 import com.animalhaven.hansportable.myanimalhaven.Domain.LivingArea;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Admin on 2016/05/08.

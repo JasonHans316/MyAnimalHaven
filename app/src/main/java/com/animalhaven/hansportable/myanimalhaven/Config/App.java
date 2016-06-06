@@ -8,7 +8,7 @@ import android.content.Context;
  */
 public class App extends Application{
 
-    private static Context context;
+    public static Context context;
 
     private static App singleton;
 
